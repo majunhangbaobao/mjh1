@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>篮球</title>
+		<style>
+			*{
+				padding: 0%;
+				margin: 0%;
+				box-sizing: border-box;
+			}
+			body{
+				background-color: rgb(57, 115, 238);
+				width: 100%;
+				height: 700px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.ball-box{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				animation: up 0.55s ease-out alternate-reverse infinite;
+			}
+			.ball{
+				width: 150px;
+				height: 150px;
+				background-color: rgb(247, 151, 43);
+				border-radius: 50%;
+				position: absolute;
+				overflow: hidden;
+				z-index:1;
+				box-shadow: 0 0 2px 3px honeydew;
+				animation: ro 3s linear infinite;
+			}
+			.ball::before{
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				border: 5px solid #fcfcfc;
+				left: -67%;
+				filter: blur(0.5px);
+			}
+			.ball::after{
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				border: 5px solid #fcfcfc;
+				right: -67%;
+				filter: blur(0.5px);
+			}
+			.a{
+				position: absolute;
+				transform: translate(-50%,-50%);
+				top: 50%;
+				left:50%;
+				width: 200px;
+				height: 5px;
+				background-color: #fcfcfc;
+			}
+			.b{
+				position: absolute;
+				transform: translate(-50%,-50%);
+				top: 50%;
+				left:50%;
+				width: 5px;
+				height: 200px;
+				background-color: #fcfcfc;
+			}
+			.shadow{
+				align-self: flex-end;
+				width: 150px;
+				height: 5px;
+				border-radius: 25%;
+				margin-bottom: 100px;
+				background-color: rgba(56, 56, 56, 0.75);
+				z-index: 0;
+				animation: shadow 0.55s ease-out alternate-reverse infinite;
+			}
+			@keyframes up{
+				0%{
+					transform: translateY(95%);
+				}
+				100%{
+					transform: translateY(-90%);
+				}
+			}
+			@keyframes ro{
+				0%{
+					transform: rotate(0deg)
+				}
+				100%{
+					transform: rotate(360deg)
+				}
+			}
+			@keyframes shadow{
+				0%{
+					transform: scale3d(0.15,1.25,1)
+				}
+				100%{
+					transform: scale3d(1.25,0.75,1)
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bll-box">
+			<div class="ball">
+				<div class="a"></div>
+				<div class="b"></div>
+			</div>
+		</div>
+		<div class="shadow"></div>
+	</body>
+</html>
